@@ -23,6 +23,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  flutter_swiper: ^1.1.4
+  url_launcher: ^5.7.6
+  fluttertoast: ^3.1.0
+#  mysql1: ^0.17.1
 
 dev_dependencies:
   flutter_test:
@@ -70,3 +74,38 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+  - assets/tabs/home-1.png
+  - assets/tabs/home-2.png
+  - assets/tabs/me-1.png
+  - assets/tabs/me-2.png
+  - assets/tabs/product-1.png
+  - assets/tabs/product-2.png
+  - assets/tabs/tourist-1.png
+  - assets/tabs/tourist-2.png
+  - assets/banner/banner1.png
+  - assets/banner/banner2.png
+  - assets/banner/banner3.png
+  - assets/banner/banner4.png
+  - assets/banner/banner5.png
+  - assets/icons/arrowDownBrown.png
+  - assets/icons/arrowDownGrey.png
+  - assets/coursesPic/cbt.png
+  - assets/coursesPic/ptgz.png
+  - assets/coursesPic/pyzg.png
+  - assets/coursesPic/zdx.png
+  - assets/vrPic/zs.png
+  - assets/vrPic/lz.png
+  - assets/vrPic/slhz.png
+  - assets/vrPic/dhgc.png
+  - assets/vrPic/js.png
+  - assets/vrPic/sc.png
+  - assets/vr360Pic/zs360.png
+  - assets/vr360Pic/lz360.png
+  - assets/vr360Pic/slhz360.png
+  - assets/vr360Pic/dhgc360.png
+  - assets/vr360Pic/js360.png
+  - assets/vr360Pic/sc360.png
+  - assets/indexPic/index.png
+  - assets/indexPic/login.png
+  - assets/about/logo.png

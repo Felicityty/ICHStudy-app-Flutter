@@ -58,8 +58,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,   // 底部的Widget就会固定，不会跟随键盘弹起
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: _login(),
         appBar: AppBar(
           backgroundColor: Color(0xffdedede),

@@ -26,6 +26,7 @@ dependencies:
   flutter_swiper: ^1.1.4
   url_launcher: ^5.7.6
   fluttertoast: ^3.1.0
+#  roundcheckbox: ^1.0.0
 #  mysql1: ^0.17.1
 
 dev_dependencies:
@@ -109,3 +110,14 @@ flutter:
   - assets/indexPic/index.png
   - assets/indexPic/login.png
   - assets/about/logo.png
+  - assets/goodsImg/fan1.png
+  - assets/goodsImg/fan2.png
+  - assets/goodsImg/fan3.png
+  - assets/goodsImg/fan4.png
+  - assets/goodsImg/paperCut.png
+  - assets/goodsImg/ship.png
+  - assets/icons/bin.png
+  - assets/icons/add.png
+  - assets/icons/sub.png
+  - assets/icons/address.png
+  - assets/icons/rewrite.png

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './vrDetail.dart';
+import '../Components/search.dart';
 
 class VRIndexPage extends StatefulWidget {
   VRIndexPage({Key key}) : super(key: key);
@@ -42,7 +43,7 @@ class _VRIndexPageState extends State<VRIndexPage> {
 class VRContent extends StatelessWidget {
   List<Map> vrsList = [
     {"id":0, "name": "舟山博物馆", "picUrl": "assets/vrPic/zs.png"},
-    {"id":0,  "name": "十里红妆博物馆", "picUrl": "assets/vrPic/slhz.png"},
+    {"id":1,  "name": "十里红妆博物馆", "picUrl": "assets/vrPic/slhz.png"},
     {"id":2, "name": "定海古城", "picUrl": "assets/vrPic/dhgc.png"},
     {"id":3, "name": "龙珠", "picUrl": "assets/vrPic/lz.png"},
     {"id":4, "name": "金沙", "picUrl": "assets/vrPic/js.png"},
@@ -54,20 +55,10 @@ class VRContent extends StatelessWidget {
     // TODO: implement build
     return Column(
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.fromLTRB(24, 20, 24, 10),
-          height: 35,
-          child: Container(
-            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-            child: Row(
-              children: <Widget>[Icon(Icons.search), Text("搜素VR/AR名称", style: TextStyle(color: Color(0xff73615D)))],
-            ),
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.horizontal(left: Radius.circular(50), right: Radius.circular(50)),
-            color: Colors.white
-          ),
+        SizedBox(
+          height: 10,
         ),
+        searchWidget(),
         Expanded(
           child: ListView.builder(
               shrinkWrap: true,

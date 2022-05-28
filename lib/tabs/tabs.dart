@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../home/home.dart';
-import '../products/products.dart';
+import '../products/productsList.dart';
 import '../tourist/tourist.dart';
 import '../my/my.dart';
 // 这个顺序还得按照bottomBar里的顺序来诶

@@ -102,7 +102,7 @@ class _MyPageState extends State<MyPage> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => AddressPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AddressPage("fffffff")));
                       },
                     ),
                     GestureDetector(

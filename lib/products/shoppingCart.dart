@@ -427,7 +427,6 @@ class _CartPageState extends State<CartPage> {
   Widget _bottom() {
     return Container(
       height: 80,
-
       decoration: BoxDecoration(
         // color: Colors.deepOrangeAccent,
         border: new Border(top: BorderSide(color: Color(0xFFE5E5E5), width: 1)),

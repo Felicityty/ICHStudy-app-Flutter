@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Components/search.dart';
 import '../products/shoppingCart.dart';
+import '../products/goods.dart';
 
 class ProductPage extends StatefulWidget {
   ProductPage({Key key}) : super(key: key);
@@ -95,45 +96,53 @@ class _ProductPageState extends State<ProductPage> {
             borderRadius: BorderRadius.circular(10),
             color: Colors.white
         ),
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 150,
-              width: 180,
-              alignment: Alignment.center,
-              child: Image.asset(goodsList[index]["picUrl"]),
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(13, 10, 13, 10),
-              child: RichText(
-                // 超过两行省略
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                text: TextSpan(
-                  children: [
-                    WidgetSpan(child: Label()),
-                    WidgetSpan(child: SizedBox(width: 4)),
-                    TextSpan(
-                      text: goodsList[index]["name"],
-                      style: TextStyle(color:Color(0xff382321) ),
-                    ),
-                  ],
+        child: GestureDetector(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 150,
+                width: 180,
+                alignment: Alignment.center,
+                child: Image.asset(goodsList[index]["picUrl"]),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(13, 10, 13, 10),
+                child: RichText(
+                  // 超过两行省略
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  text: TextSpan(
+                    children: [
+                      WidgetSpan(child: Label()),
+                      WidgetSpan(child: SizedBox(width: 4)),
+                      TextSpan(
+                        text: goodsList[index]["name"],
+                        style: TextStyle(color:Color(0xff382321) ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.fromLTRB(16, 5, 0, 5),
-                  child: Text("¥"+goodsList[index]["price"],style: TextStyle(fontSize: 17, color: Color(0xffFB8539), fontWeight: FontWeight.w500),),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(36, 5, 13, 5),
-                  child: Text(goodsList[index]["people"]+"+人买过 ",style: TextStyle(fontSize: 12 , color: Color(0xff73615D)),),
-                ),
-              ],
-            )
-          ],
+              Row(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.fromLTRB(16, 5, 0, 5),
+                    child: Text("¥"+goodsList[index]["price"],style: TextStyle(fontSize: 17, color: Color(0xffFB8539), fontWeight: FontWeight.w500),),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(36, 5, 13, 5),
+                    child: Text(goodsList[index]["people"]+"+人买过 ",style: TextStyle(fontSize: 12 , color: Color(0xff73615D)),),
+                  ),
+                ],
+              )
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => GoodsPage(goodsList[index]["id"].toString())));
+          },
         ),
     ));
   }

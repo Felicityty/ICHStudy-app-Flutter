@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import './addsModify.dart';
+import '../tabs/tabs.dart';
 
 class AddressPage extends StatefulWidget {
-  // String vrid;
-  // AddressPage(this.vrid);
-  AddressPage({Key key}) : super(key: key);
+  String addname;
+  AddressPage(this.addname);
+  // AddressPage({Key key}) : super(key: key);
   _AddressPageState createState()=> _AddressPageState();
 }
 class _AddressPageState extends State<AddressPage> {
@@ -33,7 +34,10 @@ class _AddressPageState extends State<AddressPage> {
                 color: Color(0xff7A5A32),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Tabs()));
               },
             ),
           ),
@@ -44,7 +48,7 @@ class _AddressPageState extends State<AddressPage> {
   }
 
   Widget _addressContent() {
-    // info[0]["name"] = widget.vrid;
+    info[0]["name"] = widget.addname;
     return Container(
       margin: EdgeInsets.fromLTRB(24, 20, 24, 0),
       decoration: BoxDecoration(

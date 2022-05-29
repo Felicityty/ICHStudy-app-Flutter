@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../about/aboutIndex.dart';
 import '../address/address.dart';
+import '../orders/orders.dart';
 
 class MyPage extends StatefulWidget {
   MyPage({Key key}) : super(key: key);
@@ -128,7 +129,7 @@ class _MyPageState extends State<MyPage> {
                         ),
                       ),
                       onTap: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => UsPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => OrdersPage()));
                       },
                     )
                   ],

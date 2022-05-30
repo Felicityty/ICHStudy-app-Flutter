@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../products/productsList.dart';
+import '../orders/confirm.dart';
 
 class GoodsPage extends StatefulWidget {
   String goodid;
@@ -85,17 +86,17 @@ class _GoodsPageState extends State<GoodsPage> {
     return items;
   }
 
-  var select2ItemValue = '0';
+  var select2ItemValue = '4';
   List<DropdownMenuItem> generate2ItemList() {
     final List<DropdownMenuItem> items = List();
     final DropdownMenuItem item1 = DropdownMenuItem(
-      child: Text('渔船'), value: '0',);
+      child: Text('渔船'), value: '4',);
     final DropdownMenuItem item2 = DropdownMenuItem(
-      child: Text('民船'), value: '1',);
+      child: Text('民船'), value: '5',);
     final DropdownMenuItem item3 = DropdownMenuItem(
-      child: Text('商船'), value: '2',);
+      child: Text('商船'), value: '6',);
     final DropdownMenuItem item4 = DropdownMenuItem(
-      child: Text('乌篷船'), value: '3',);
+      child: Text('乌篷船'), value: '7',);
     items.add(item1);
     items.add(item2);
     items.add(item3);
@@ -177,7 +178,7 @@ class _GoodsPageState extends State<GoodsPage> {
                   SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
                       return Container(
-                        color: Colors.deepOrange,
+                        // color: Colors.deepOrange,
                         child: Column(
                           children: <Widget>[
                             _info(),
@@ -289,12 +290,14 @@ class _GoodsPageState extends State<GoodsPage> {
                             // 改变事件
                             onChanged: (value) {
                               setState(() {
-                                a==2 ? select2ItemValue:select1ItemValue = value;
+                                a==2 ? select2ItemValue : select1ItemValue = value;
+                                print(select2ItemValue);
+                                print(select1ItemValue);
                               });
                             },
                             // 是否撑满
                             isExpanded: true,
-                            value: a==2 ? select2ItemValue:select1ItemValue,
+                            value: a==2 ? select2ItemValue : select1ItemValue,
                             // 图标大小
                             iconSize: 35,
                             // 下拉文本样式
@@ -365,10 +368,11 @@ class _GoodsPageState extends State<GoodsPage> {
                         ),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => AddressPage(name)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ConfirmPage(a.toString(), num.toString(), select1ItemValue)));
+                                // var类型的数据传过去最好还是先转成String类型的，不然太容易报错了
                       },
                     )
                   ],
@@ -394,7 +398,7 @@ class _GoodsPageState extends State<GoodsPage> {
               Container(
                 child: Text("¥"+goodsList[a]["price"],style: TextStyle(fontSize: 28, color: Color(0xffFB8539), fontWeight: FontWeight.w500),),
               ),
-              SizedBox(width: 200,),
+              SizedBox(width: 215,),
               Container(
                 child: Text(goodsList[a]["people"]+"+人买过 ",style: TextStyle(fontSize: 14 , color: Color(0xff73615D)),),
               ),
@@ -589,7 +593,7 @@ class _GoodsPageState extends State<GoodsPage> {
           ),
           Container(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-            color: Colors.amber,
+            // color: Colors.amber,
             child: Image.asset(goodsList[a]["pic"],fit: BoxFit.fitWidth,),
           )
         ],

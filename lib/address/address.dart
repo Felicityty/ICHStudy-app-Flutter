@@ -53,7 +53,7 @@ class _AddressPageState extends State<AddressPage> {
       margin: EdgeInsets.fromLTRB(24, 20, 24, 0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.horizontal(left: Radius.circular(10), right: Radius.circular(10)),
-          color: Color(0xffFFFBF8)
+          color: Colors.white
       ),
       height: 250,
       width: 380,

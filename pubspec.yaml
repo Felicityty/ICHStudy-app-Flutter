@@ -133,3 +133,5 @@ flutter:
   - assets/icons/niming.png
   - assets/icons/cha.png
   - assets/icons/shopcart.png
+  - assets/pay/weixin.png
+  - assets/pay/zhifubao.png

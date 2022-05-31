@@ -237,7 +237,7 @@ class _SuccessPageState extends State<SuccessPage> {
             ),
             Container(
               width: 340,
-              padding: EdgeInsets.fromLTRB(15, 25, 0, 0),
+              padding: EdgeInsets.fromLTRB(10, 25, 0, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -258,8 +258,12 @@ class _SuccessPageState extends State<SuccessPage> {
 
   Widget _addressContent() {
     // 获取现在时间
-    DateTime dateTime1 = DateTime.now();
-    DateTime dateTime2 = dateTime1.add(new Duration(minutes: -5));
+    DateTime dateTime1;
+    DateTime dateTime2;
+    setState(() {
+      dateTime1 = DateTime.now();
+      dateTime2 = dateTime1.add(new Duration(minutes: -5));
+    });
     return Container(
       margin: EdgeInsets.fromLTRB(24, 20, 24, 0),
       padding: EdgeInsets.fromLTRB(15, 15, 15, 0),

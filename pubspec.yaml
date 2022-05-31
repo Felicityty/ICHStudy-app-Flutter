@@ -26,7 +26,7 @@ dependencies:
   flutter_swiper: ^1.1.4
   url_launcher: ^5.7.6
   fluttertoast: ^3.1.0
-#  roundcheckbox: ^1.0.0
+  reviews_slider: ^1.0.5
 #  mysql1: ^0.17.1
 
 dev_dependencies:
@@ -90,6 +90,7 @@ flutter:
   - assets/banner/banner4.png
   - assets/banner/banner5.png
   - assets/icons/arrowDownBrown.png
+  - assets/icons/arrowUpBrown.png
   - assets/icons/arrowDownGrey.png
   - assets/coursesPic/cbt.png
   - assets/coursesPic/ptgz.png

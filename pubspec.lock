@@ -156,6 +156,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.5"
+  reviews_slider:
+    dependency: "direct main"
+    description:
+      name: reviews_slider
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.5"
   sky_engine:
     dependency: transitive
     description: flutter

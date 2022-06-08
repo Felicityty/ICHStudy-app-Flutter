@@ -243,5 +243,3 @@ class CustomFloatingActionButtonLocation extends FloatingActionButtonLocation {
     return Offset(offset.dx + offsetX, offset.dy + offsetY);
   }
 }
-
-// Text(widget.vrid)

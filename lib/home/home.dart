@@ -309,7 +309,7 @@ class _HomePageState extends State<HomePage> {
     return _buildSwiperPagination();
   }
 
-  //自定圆点分页指示器
+  //自定义圆点分页指示器
   _buildSwiperPagination() {
     // 分页指示器
     return SwiperPagination(

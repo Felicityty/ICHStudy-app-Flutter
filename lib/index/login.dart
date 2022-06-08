@@ -19,8 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   bool isUser = false;
   bool isPass = false;
 
-  final pas ="[A-Z,a-z,0-9]";
-
   String checkUser(String name) {
     // print(name);
     if(name == ""){
@@ -36,6 +34,8 @@ class _LoginPageState extends State<LoginPage> {
     }
     return userTip;
   }
+
+  final pas ="[A-Z,a-z,0-9]";
 
   String checkPass(String word) {
     // print(RegExp(pas).hasMatch(word));

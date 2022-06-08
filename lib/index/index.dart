@@ -30,43 +30,50 @@ class _index extends StatelessWidget{
             image: DecorationImage(
                 image: AssetImage('assets/indexPic/index.png'),
                 fit: BoxFit.fitWidth)),
-        child: Container(
-          child: Row(
-            children: <Widget>[
-              GestureDetector(
-                child: Container(
-                    margin: EdgeInsets.fromLTRB(24, 620, 24, 140),
-                    height: 55,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(left: Radius.circular(10), right: Radius.circular(10)),
-                      color: Color(0xff987744),),
-                    child: Center(
-                      child:Text("登录",style: TextStyle(fontSize: 18,color: Colors.white),),
-                    )
-                ),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                },
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Row(
+                children: <Widget>[
+                  GestureDetector(
+                    child: Container(
+                        margin: EdgeInsets.fromLTRB(24, 660, 24, 60),
+                        height: 55,
+                        width: 180,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.horizontal(left: Radius.circular(10), right: Radius.circular(10)),
+                          color: Color(0xff987744),),
+                        child: Center(
+                          child:Text("登录",style: TextStyle(fontSize: 18,color: Colors.white),),
+                        )
+                    ),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                  ),
+                  GestureDetector(
+                    child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 660, 24, 60),
+                        height: 55,
+                        width: 180,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.horizontal(left: Radius.circular(10), right: Radius.circular(10)),
+                          color: Color(0xff987744),),
+                        child: Center(
+                          child:Text("注册",style: TextStyle(fontSize: 18,color: Colors.white),),
+                        )
+                    ),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                  ),
+                ],
               ),
-              GestureDetector(
-                child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 620, 24, 140),
-                    height: 55,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(left: Radius.circular(10), right: Radius.circular(10)),
-                      color: Color(0xff987744),),
-                    child: Center(
-                      child:Text("注册",style: TextStyle(fontSize: 18,color: Colors.white),),
-                    )
-                ),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                },
-              ),
-            ],
-          ),
+            ),
+            Container(
+              child: Text("开发人员：数媒203  1200651144  冯婷婷" ,style: TextStyle(color: Color(0xff382321)),),
+            )
+          ],
         )
       // child: SizedBox(
       //   child: Row(

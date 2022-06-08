@@ -15,7 +15,7 @@ class _StarPageState extends State<StarPage> {
           appBar: AppBar(
             backgroundColor: Color(0xffF9F3EB),
             elevation: 0,
-            title: Text("评价" ,style: TextStyle(color: Color(0xff382321)),),
+            title: Text("商品评价" ,style: TextStyle(color: Color(0xff382321)),),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back_ios,

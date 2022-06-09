@@ -1,134 +1,125 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'dart:convert';
+// import 'package:http/http.dart' as http;
+// import 'dart:io';
+// import 'package:dio/dio.dart';
+//
+//
+// class TestPage extends StatefulWidget {
+//   const TestPage({Key key}) : super(key: key);
+//   @override
+//   _TestPageState createState() => _TestPageState();
+// }
+//
+// class _TestPageState extends State<TestPage> {
+//   String result = "";
+//   @override
+//   Widget build(BuildContext context) {
+//     // TODO: implement build
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("oo"),
+//         ),
+//         body: _contest(),
+//       ),
+//     );
+//   }
+//   Widget _contest (){
+//     return Container(
+//       child: GestureDetector(
+//         child: Container(
+//           width: 50,
+//           height: 50,
+//           color: Colors.deepOrange,
+//         ),
+//         onTap: (){
+//           dioGetData();
+//         },
+//       ),
+//     );
+//   }
+//
+//   dioGetData() {
+//     print(1111);
+//     final response = Dio().get("http://10.0.2.2/conn.php");
+//     response.then((value) {
+//       print(value.statusCode);
+//       print(value.data);
+//     });
+//   }
+//
+//   // void getFun() async {
+//   //   Dio dio = new Dio();
+//   //   String url = "http://10.0.0.12/conn.php";
+//   //   Response response = await dio.get(url);
+//   //   var data = response.data;
+//   // }
+//
+//
+//
+// }
+//
+
 import 'dart:convert';
+import 'package:flutter/material.dart';
+// 引入网络请求插件
+import 'package:dio/dio.dart';
 
-class Test extends StatelessWidget {
+class HttpPage extends StatefulWidget {
+  HttpPage({Key key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Basic Project',
-      home: new MyHomePage(),
-    );
-  }
+  _HttpPageState createState() => _HttpPageState();
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
+class _HttpPageState extends State<HttpPage> {
 
-class _MyHomePageState extends State<MyHomePage> {
-  StreamController _postsController;
-  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  int count = 1;
-
-  Future fetchPost([howMany = 5]) async {
-    final response = await http.get(
-        'http://127.0.0.12/conn.php');
-
-    if (response.statusCode == 200) {
-      return json.decode(response.body);
-    } else {
-      throw Exception('Failed to load post');
-    }
-  }
-
-  loadPosts() async {
-    fetchPost().then((res) async {
-      _postsController.add(res);
-      return res;
-    });
-  }
-
-  showSnack() {
-    return scaffoldKey.currentState.showSnackBar(
-      SnackBar(
-        content: Text('New content loaded'),
-      ),
-    );
-  }
-
-  Future<Null> _handleRefresh() async {
-    count++;
-    print(count);
-    fetchPost(count * 5).then((res) async {
-      _postsController.add(res);
-      showSnack();
-      return null;
-    });
-  }
+  List _list = [];
 
   @override
   void initState() {
-    _postsController = new StreamController();
-    loadPosts();
     super.initState();
+    this._getData();
+  }
+  // 获取数据
+  void _getData() async{
+    var url = "http://172.18.53.37/test/conn.php";
+    Response result = await Dio().get(url);
+    setState(() {
+      this._list = json.decode(result.data)["data"];
+      print(this._list);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      key: scaffoldKey,
-      appBar: new AppBar(
-        title: new Text('StreamBuilder'),
-        actions: <Widget>[
-          IconButton(
-            tooltip: 'Refresh',
-            icon: Icon(Icons.refresh),
-            onPressed: _handleRefresh,
+    return MaterialApp(
+      home: Scaffold(
+          appBar:AppBar(
+            title: Text("HTTP请求"),
+          ),
+
+
+          // 渲染数据(第一种方式)
+          // body:this._list.length==0?Center(child:Text("加载中")):ListView(
+          //     children:this._list.map((obj){
+          //         return ListTile(
+          //             title: Text(obj["title"]),
+          //         );
+          //     }).toList()
+          // )
+
+          // 渲染数据(第二种方式)
+          body:this._list.length==0?Center(child: Text("加载中")):ListView.builder(
+              itemCount:this._list.length,
+              itemBuilder:(context,index){
+                return ListTile(
+                    title:Text("${this._list[index]['name']}")
+                );
+              }
           )
-        ],
-      ),
-      body: StreamBuilder(
-        stream: _postsController.stream,
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          print('Has error: ${snapshot.hasError}');
-          print('Has data: ${snapshot.hasData}');
-          print('Snapshot Data ${snapshot.data}');
 
-          if (snapshot.hasError) {
-            return Text(snapshot.error);
-          }
-
-          if (snapshot.hasData) {
-            return Column(
-              children: <Widget>[
-                Expanded(
-                  child: Scrollbar(
-                    child: RefreshIndicator(
-                      onRefresh: _handleRefresh,
-                      child: ListView.builder(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (context, index) {
-                          var post = snapshot.data[index];
-                          return ListTile(
-                            title: Text(post['title']['rendered']),
-                            subtitle: Text(post['date']),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          }
-
-          if (snapshot.connectionState != ConnectionState.done) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          if (!snapshot.hasData &&
-              snapshot.connectionState == ConnectionState.done) {
-            return Text('No Posts');
-          }
-        },
       ),
     );
   }

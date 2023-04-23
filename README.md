@@ -1,6 +1,6 @@
-# demo30
+# Intangible Heritage Research Application with Flutter
 
-A new Flutter application.
+Technology Stack: Flutter + PHP + MySql
 
 ## Getting Started
 
